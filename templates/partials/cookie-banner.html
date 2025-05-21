@@ -1,0 +1,40 @@
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" class="cookie-consent-banner">
+  <div class="container">
+    <p>
+      Questo sito utilizza i cookie per migliorare l'esperienza di navigazione e raccogliere dati statistici anonimi.
+      <a href="{{ url_for('privacy_policy') }}" target="_blank">Leggi la nostra Privacy Policy.</a>
+    </p>
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="btn btn-primary">Accetta</button>
+      <button id="decline-cookies" class="btn btn-danger">Rifiuta</button>
+      <button id="manage-preferences" class="btn btn-outline-white">Gestisci Preferenze</button>
+    </div>
+
+    <!-- Pannello delle preferenze -->
+    <div id="cookie-preference-modal" class="cookie-preference-modal">
+      <h4>Gestisci le tue preferenze</h4>
+      <p>Scegli quali tipi di cookie accettare:</p>
+
+      <label>
+        <input type="checkbox" id="cookies-necessary" checked disabled>
+        <strong>Cookie Tecnici (Necessari)</strong>
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" id="cookies-analytics">
+        <strong>Cookie Analitici</strong> (Google Analytics)
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" id="cookies-marketing">
+        <strong>Cookie di Marketing</strong> (Annunci personalizzati)
+      </label>
+
+      <div class="cookie-preference-buttons">
+        <button id="save-preferences" class="btn btn-success">Salva Preferenze</button>
+        <button id="cancel-preferences" class="btn btn-outline-dark">Annulla</button>
+      </div>
+    </div>
+  </div>
+</div>

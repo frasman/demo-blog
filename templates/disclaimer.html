@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="hero overlay">
+		<div class="img-bg rellax">
+			<img src="static/assets/images/ala-aereo-tramonto.webp" alt="ala-aereo-tramonto" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-6">
+					<h1 class="heading text-white" data-aos="fade-up">Scopri i migliori consigli per il tuo viaggio!</h1>
+					<p class="mb-4 text-light" data-aos="fade-up" data-aos-delay="200">
+						Dai suggerimenti su come risparmiare sui voli alle migliori escursioni: trova tutto quello che ti serve per un viaggio perfetto.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Disclaimer -->
+	<div class="section bg-light py-5">
+		<div class="container">
+			<h2 class="text-center mb-4">Disclaimer & Trasparenza</h2>
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<div class="card p-4 border-0 shadow-sm">
+						<h4>1. Accuratezza delle Informazioni</h4>
+						<p>Facciamo del nostro meglio per fornire informazioni aggiornate e corrette, ma non possiamo garantire l'assenza di errori. Ti consigliamo di verificare direttamente con i fornitori prima di prenotare.</p>
+
+						<h4>2. Link di Affiliazione</h4>
+						<p>Alcuni link presenti sul sito sono affiliati, il che significa che potremmo ricevere una commissione senza costi aggiuntivi per te. Questo aiuta a supportare il sito.</p>
+
+						<h4>3. Responsabilità per Servizi di Terze Parti</h4>
+						<p>Non siamo responsabili per prodotti o servizi offerti da terze parti tramite i nostri link. Prima di acquistare, ti invitiamo a leggere i termini e le condizioni delle piattaforme di destinazione.</p>
+
+						<h4>4. Diritti d’Autore e Utilizzo dei Contenuti</h4>
+						<p>I contenuti del sito sono protetti da copyright e non possono essere copiati senza autorizzazione. Se ritieni che un contenuto violi i tuoi diritti, contattaci.</p>
+
+						<h4>5. Privacy e Protezione dei Dati</h4>
+						<p>Per informazioni su come gestiamo i dati personali, consulta la nostra <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a>.</p>
+
+						<h4>6. Clausola di Manleva</h4>
+						<p>Utilizzando questo sito, accetti che non saremo ritenuti responsabili per eventuali perdite, danni o inconvenienti derivanti dall’uso delle informazioni presenti. Le decisioni prese sulla base dei nostri contenuti sono a tuo esclusivo rischio.</p>
+						<p>Le informazioni presenti sul sito sono fornite a scopo informativo e possono subire variazioni. Ti invitiamo a verificare sempre con le fonti ufficiali prima di prendere decisioni basate sui nostri contenuti.</p>
+
+
+						<h4>7. Modifiche e Aggiornamenti</h4>
+						<p>Ci riserviamo il diritto di modificare questo disclaimer in qualsiasi momento. L’uso continuato del sito dopo eventuali aggiornamenti costituisce accettazione delle nuove condizioni.</p>
+
+						<p class="text-muted mt-3"><strong>Ultimo aggiornamento:</strong> {{ CURRENT_MONTH }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

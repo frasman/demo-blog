@@ -1,0 +1,63 @@
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body">
+
+    </div>
+</div>
+
+<nav class="site-nav mt-3">
+    <div class="container">
+        <div class="site-navigation">
+            <div class="row">
+                <div class="col-6 col-lg-3">
+                    <a href="{{ url_for('home')}}" class="logo m-0 float-start"><img src="{{ url_for('static', filename='favicon.ico') }}" alt="Icona Two on the Road" height="25" width="25"> Two on the road </a>
+                </div>
+                <div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
+                    <ul class="js-clone-nav  text-center site-menu p-0 m-0">
+                        <li class="active"><a href="{{ url_for('home')}}">Home</a></li>
+                        <li><a href="{{ url_for('about')}}">About us</a></li>
+                        <li><a href="{{ url_for('advices')}}">I nostri consigli</a></li>
+                        <li><a href="{{ url_for('blog')}}">Blog</a></li>
+
+                        {% if current_user.is_authenticated %}
+                            <li><a href="{{ url_for('logout')}}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('login')}}">Login</a></li>
+                        {% endif %}
+
+                        {% if current_user.is_authenticated and current_user.id == 1 %}
+                        <li class="has-children">
+                            <a href="">Pannello admin</a>
+                            <ul class="dropdown">
+                                <li><a href="{{ url_for('add_new_post')}}">Nuovo Post</a></li>
+                                <li class="has-children">
+                                    <a href="#">Menu manutenzione</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ url_for('toggle_maintenance') }}">Attiva/disattiva manutenzione</a></li>
+                                        <li><a href="{{ url_for('bozze') }}">Bozze</a></li>
+                                        <li><a href="#">Sub Menu Three</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ url_for('logout')}}">Logout</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 text-lg-end">
+                    <ul class="js-clone-nav d-none d-lg-inline-block text-end site-menu">
+                        <li class="cta-button"><a href="{{ url_for('contact')}}">Contact Us</a></li>
+                    </ul>
+
+                    <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

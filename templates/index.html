@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Two on the Road{% endblock %}
+
+{% block meta_description %}
+Parti alla scoperta del mondo con Two on the Road: avventure autentiche, emozioni, consigli e itinerari su misura per viaggiatori curiosi.
+{% endblock %}
+
+{% block meta_keywords %}
+viaggi fai da te, travel blog di coppia, itinerari personalizzati, esperienze autentiche, avventure nel mondo, ispirazione di viaggio, Kenya, Caraibi, Egitto
+{% endblock %}
+
+
+{% block content %}
+	<div class="hero overlay">
+		<div class="img-bg rellax ">
+			<img src="{{ url_for('static', filename='assets/images/noi-su-fuoristrada-deserto-orientale.webp') }}" alt="Noi sul tetto di un fuoristrada nel Deserto Orientale, immersi in un panorama mozzafiato." class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-5">
+
+					<h1 class="heading" data-aos="fade-up">Parti alla scoperta del mondo: nuove avventure ti aspettano!</h1>
+					<p class="mb-5" data-aos="fade-up">Attraversa confini, scopri nuovi orizzonti e lasciati guidare dalla curiosità: il mondo è un’avventura che aspetta solo te</p>
+
+					<div data-aos="fade-up">
+						<a href="https://www.youtube.com/watch?v=1e9B31FLT-s&ab_channel=LudovicoEinaudiVEVO" class="play-button align-items-center d-flex glightbox3" >
+							<span class="icon-button me-3">
+								<span class="icon-play"></span>
+							</span>
+							<span class="caption">Watch Video</span>
+						</a>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="section section-2">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+					<div class="image-stack mb-5 mb-lg-0">
+						<div class="image-stack__item image-stack__item--bottom" data-aos="fade-up"  >
+							<img src="{{ url_for('static', filename='assets/images/canyon-marafa-sunset.webp') }}" alt="Tramonto mozzafiato sul Canyon Marafa, con rocce dorate e sfumature rosse spettacolari"
+								 class="img-fluid rellax ">
+						</div>
+						<div class="image-stack__item image-stack__item--top" data-aos="fade-up" data-aos-delay="100"  data-rellax-percentage="0.5">
+							<img src="{{ url_for('static', filename='assets/images/momento-kilifi-kenya.webp') }}" alt="Momento speciale a Kilifi, Kenya: lei sulle mie spalle con il mare sullo sfondo"
+								 class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-4 order-lg-1">
+
+					<div>
+						<h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">Esplora il mondo con noi, una destinazione alla volta!</h2>
+
+						<p data-aos="fade-up" data-aos-delay="200">Questo sito è il nostro <strong>diario di viaggio</strong>, nato per condividere <strong>esperienze</strong>,
+							<strong>consigli</strong> e <strong>ispirazioni</strong>. Siamo partiti con <strong>viaggi organizzati</strong>,
+							ma presto ci siamo resi conto che non ci bastava più:
+							volevamo <strong>esplorare il mondo</strong> a modo nostro.</p>
+
+						<p data-aos="fade-up" data-aos-delay="300">Così abbiamo iniziato a costruire <strong>itinerari su misura</strong>,
+							affrontando nuove <strong>sfide</strong> e scoprendo <strong>luoghi autentici</strong>.
+							Qui raccontiamo il nostro <strong>percorso</strong>, le <strong>difficoltà</strong> superate e le <strong>emozioni vissute</strong>,
+							per aiutarti a trovare <strong>ispirazione</strong> e vivere al meglio le tue <strong>avventure</strong>.</p>
+
+						<p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="{{ url_for('about') }}" class="btn btn-primary">Scopri chi siamo</a></p>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>		
+	</div>
+
+	<div class="section service-section-1" data-aos="fade-up" data-aos-delay="100">
+		<div class="container">
+			<div class="row align-items-center justify-content-between  mb-5">
+				<div class="col-lg-5" data-aos="fade-up">
+					<h2 class="heading mb-3">Esplora le destinazioni che abbiamo visitato e trova ispirazione per il tuo prossimo viaggio!</h2>
+					<p>Abbiamo esplorato luoghi unici e affascinanti, da piccole cittadine nascoste a città cosmopolite.
+						Ogni <strong>destinazione</strong> racconta una storia diversa e ci ha offerto <strong>esperienze uniche</strong> che vogliamo condividere con te.
+						Qui troverai <strong>itinerari dettagliati</strong>, <strong>consigli utili</strong> e suggerimenti per vivere al meglio ogni luogo.
+						Sia che tu stia cercando una fuga tranquilla o un'<strong>avventura adrenalinica</strong>, troverai l'ispirazione per partire verso la tua prossima <strong>destinazione da sogno</strong>.</p>
+				</div>		
+				<div class="col-lg-5 text-md-end" data-aos="fade-up" data-aos-delay="100">
+					<div id="destination-controls">
+						<span class="prev me-3" data-controls="prev">
+							<span class="icon-chevron-left"></span>
+
+						</span>
+						<span class="next" data-controls="next">
+							<span class="icon-chevron-right"></span>
+
+						</span>
+					</div>
+				</div>
+			</div>	
+
+		</div>		
+
+		<div class="destination-slider-wrap">
+			<div class="destination-slider">
+				{% for post in random_posts %}
+				<div class="destination">
+					<div class="thumb">
+						<img src= "{{ post.cover_image }}" alt="{{ post.title }}" class="img-fluid">
+					</div>
+					<div class="mt-4">
+						<h3><a href="{{ url_for('show_post', slug=post.slug) }}">{{ post.title }}</a></h3>
+						<span class="meta">{{ post.subtitle }}</span>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-up">
+                <blockquote class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/two.on.the.road_?igsh=MXZlaDlqMTYxYWd1Nw%3D%3D&utm_source=qr"
+                    data-instgrm-version="12"
+                    style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px auto; max-width:540px; min-width:326px; padding:0; width:100%;">
+                </blockquote>
+                <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="heading mb-4">Seguici su Instagram per aggiornamenti quotidiani!</h2>
+                <p>Non perderti nessuna delle nostre avventure! Segui il nostro profilo Instagram per scoprire
+                    <strong>foto</strong>, <strong>video</strong> e <strong>aggiornamenti giornalieri</strong> sulle nostre destinazioni, esperienze e consigli di viaggio.
+                    Unisciti a noi mentre esploriamo il mondo e condividiamo in tempo reale tutto ciò che ci ispira.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<div class="section service-section-1">
+		<div class="container">
+			<div class="row justify-content-between align-items-center">
+				<div class="col-lg-5 mb-4 mb-lg-0">
+					<img src="{{ url_for('static', filename='assets/images/noi-due-sotto-palma-isla-catalina.webp') }}" alt="Noi due sotto una palma a Isla Catalina, tra spiaggia bianca e mare cristallino."
+						 class="img-fluid">
+				</div>
+				<div class="col-lg-5 mt-4 mt-lg-0"  data-aos="fade-up" data-aos-delay="100">
+
+					<h2 class="heading mb-5">Frequently Asked <br> Questions</h2>
+
+					<div class="custom-accordion" id="accordion_1">
+						<div class="accordion-item">
+							<h2 class="mb-0">
+								<button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Dove possiamo trovare i vostri itinerari di viaggio?</button>
+							</h2>
+
+							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion_1">
+								<div class="accordion-body">
+									<p>Sul nostro sito, <strong>Two On The Road</strong>, troverai itinerari di viaggio dettagliati in diverse destinazioni che abbiamo già esplorato, come il <strong>Kenya</strong>, la <strong>Caraibi</strong> e l'<strong>Egitto</strong>. Esplora i nostri <strong>itinerari personalizzati</strong> e ottieni consigli pratici per il tuo prossimo viaggio.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item">
+							<h2 class="mb-0">
+								<button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Come abbiamo esplorato il Kenya e cosa ci ha impressionato di più?</button>
+							</h2>
+							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion_1">
+								<div class="accordion-body">
+									<p>Nel nostro viaggio in <strong>Kenya</strong>, abbiamo esplorato luoghi incredibili come il <strong>Parco Nazionale di Tsavo</strong> e le meravigliose spiagge di <strong>Watamu</strong>. Ci ha sorpreso l'abbondante fauna selvatica, come gli <strong>elefanti di Tsavo</strong>, e l'incredibile ospitalità della gente. Scopri tutti i dettagli e le emozioni vissute nel nostro articolo dedicato al <strong>Kenya</strong>!</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="mb-0">
+								<button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Perché abbiamo creato "Two on the Road"?</button>
+							</h2>
+
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion_1">
+								<div class="accordion-body">
+									<p>Abbiamo creato <strong>Two on the Road</strong> per condividere la nostra passione per i <strong>viaggi</strong> e le <strong>esperienze</strong> che ci hanno trasformati. Dopo aver esplorato numerosi angoli del mondo, ci siamo resi conto che viaggiare non è solo un modo per vedere posti nuovi, ma una vera e propria <strong>avventura personale</strong> che ci ha insegnato tanto su di noi e sul mondo. Volevamo creare uno spazio dove poter raccontare le nostre storie, offrire <strong>consigli</strong> utili, e ispirare altre persone a partire per il loro prossimo viaggio. La nostra missione è crescere come viaggiatori e condividere ogni passo del nostro cammino con chi condivide la nostra stessa passione.</p>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="accordion-item">
+							<h2 class="mb-0">
+								<button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Perché non ci definiamo "travel creator"?</button>
+							</h2>
+
+							<div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion_1">
+								<div class="accordion-body">
+									<p>Non ci definiamo <strong>travel creator</strong> perché, pur essendo appassionati di viaggi e avendo creato contenuti relativi alle nostre esperienze, non ci limitiamo a creare solo <strong>contenuti digitali</strong>. Il nostro obiettivo è vivere e condividere in modo autentico il viaggio, non solo come un lavoro, ma come una vera e propria <strong>esperienza di crescita personale</strong>. Siamo più che dei creator: siamo <strong>esploratori</strong>, amiamo vivere ogni avventura sul campo, incontrare persone, conoscere culture diverse e portare a casa storie da raccontare. Vogliamo che il nostro sito sia uno spazio di ispirazione e di scambio per chiunque abbia voglia di <strong>viaggiare e scoprire</strong> il mondo a modo proprio.</p>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="section">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-12" data-aos="fade-up" data-aos-delay="0">
+					
+					<h2 class="heading mb-5">Recent Posts</h2>
+				</div>
+			</div>
+			<div class="row align-items-stretch">
+				{% for post in latest_posts %}
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+					<div class="media-entry">
+						<a href="{{ url_for('show_post', slug=post.slug )}}">
+							<img src="{{ post.cover_image }}" alt="{{ post.title }}" class="blog-preview">
+						</a>
+						<div class="bg-white m-body">
+							<span class="date">{{ post.date.strftime('%d/%m/%Y') }}</span>
+							<h3><a href="{{ url_for('show_post', slug=post.slug )}}"> {{ post.title }} </a></h3>
+							<p>{{ post.subtitle }}</p>
+
+							<a href="{{ url_for('show_post', slug=post.slug )}}" class="more d-flex align-items-center float-start">
+								<span class="label">Read More</span>
+								<span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>	
+		</div>		
+	</div>
+
+
+
+	<div class="py-5 bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 text-center mb-3 mb-lg-0 text-lg-start">
+					<h3 class="text-white m-0">Visita il nostro blog e prendi ispirazione!</h3>
+				</div>		
+				<div class="col-lg-5 text-center text-lg-end">
+					<a href="{{ url_for ( 'blog') }}" class="btn btn-outline-white">Vai al blog</a>
+				</div>
+			</div>		
+		</div>		
+	</div>
+{% endblock %}
+
+

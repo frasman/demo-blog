@@ -1,0 +1,32 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+</head>
+<body>
+	<div class="hero overlay">
+
+		<div class="img-bg rellax">
+			<img src="static/assets/images/ala-aereo-tramonto.webp" alt="ala-aereo-tramonto" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-6 mx-auto text-center">
+					<h1 class="heading" data-aos="fade-up">Registrati!</h1>
+						<p class="mb-4" data-aos="fade-up">Contribuisci al nostro blog</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+  <div class="section">
+    <div class="row align-items-stretch">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+      </div>
+    </div>
+  </div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="hero overlay">
+		<div class="img-bg rellax">
+			<img src="static/assets/images/ala-aereo-tramonto.webp" alt="ala-aereo-tramonto" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-6 mx-auto text-center">
+					<h1 class="heading" data-aos="fade-up">Login</h1>
+					<p class="mb-4" data-aos="fade-up">Bentornato!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="row align-items-stretch">
+			<div class="col-lg-8 col-md-10 mx-auto">
+
+				<!-- Messaggi Flash (stile Bootstrap) -->
+				{% with messages = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+						{% for category, message in messages %}
+							<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+								{{ message }}
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+
+				<!-- Form Login -->
+				{{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+				<div class="text-center mt-3">
+					<p>Non sei ancora registrato? <a href="{{ url_for('register') }}" class="text-primary fw-bold">Registrati ora</a></p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

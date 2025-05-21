@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="hero overlay">
+		<div class="img-bg rellax">
+			<img src="static/assets/images/ala-aereo-tramonto.webp" alt="ala-aereo-tramonto" class="img-fluid">
+		</div>
+		<div class="container">
+			<div class="row align-items-center justify-content-start">
+				<div class="col-lg-6">
+					<h1 class="heading text-white" data-aos="fade-up">Scopri i migliori consigli per il tuo viaggio!</h1>
+					<p class="mb-4 text-light" data-aos="fade-up" data-aos-delay="200">
+						Dai suggerimenti su come risparmiare sui voli alle migliori escursioni: trova tutto quello che ti serve per un viaggio perfetto.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Sezione Link di Affiliazione -->
+	<div class="section service-section-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 mb-4 mb-lg-0">
+					<div class="heading-content" data-aos="fade-up">
+						<h2 class="d-block">I nostri link affiliati</h2>
+						<p>Risparmia su voli, escursioni e assicurazioni viaggio con i nostri partner di fiducia.</p>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="row">
+						<div class="col-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+							<div class="service-1">
+								<span class="icon">
+									<img src="{{ url_for('static', filename='assets/images/svg/01.svg') }}" alt="Escursioni" class="img-fluid">
+								</span>
+								<div>
+									<a href="https://www.getyourguide.com/?partner_id=7MDXW0G">
+										<h3>Risparmia sulle escursioni</h3>
+									</a>
+									<p>Trova e prenota le migliori attività ed esperienze in tutto il mondo.</p>
+								</div>
+							</div>
+						</div>
+<!--						<div class="col-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">-->
+<!--							<div class="service-1">-->
+<!--								<span class="icon">-->
+<!--									<img src="{{ url_for('static', filename='assets/images/svg/02.svg') }}" alt="Carte di viaggio" class="img-fluid">-->
+<!--								</span>-->
+<!--								<div>-->
+<!--									<h3>La migliore carta per viaggiatori</h3>-->
+<!--									<p>Scopri le carte prepagate e di credito ideali per risparmiare sulle commissioni all'estero.</p>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+						<div class="col-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+							<div class="service-1">
+								<span class="icon">
+									<img src="{{ url_for('static', filename='assets/images/svg/03.svg') }}" alt="Voli low-cost" class="img-fluid">
+								</span>
+								<div>
+									<a href="https://www.trip.com/t/8qMffFqCEP2">
+										<h3>Trova voli ai prezzi più bassi</h3>
+									</a>
+									<p>Confronta le migliori offerte di voli e prenota al miglior prezzo disponibile.</p>
+								</div>
+							</div>
+						</div>
+<!--						<div class="col-6 col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="400">-->
+<!--							<div class="service-1">-->
+<!--								<span class="icon">-->
+<!--									<img src="{{ url_for('static', filename='assets/images/svg/04.svg') }}" alt="Assicurazione viaggio" class="img-fluid">-->
+<!--								</span>-->
+<!--								<div>-->
+<!--									<h3>Viaggia protetto con Heymondo</h3>-->
+<!--									<p>Goditi la tua avventura senza pensieri con un’assicurazione viaggio su misura.</p>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Sezione Articoli in Evidenza -->
+	<div class="section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-lg-6 mx-auto text-center">
+					<div class="heading-content" data-aos="fade-up">
+						<h2>Articoli in evidenza</h2>
+						<p>Esplora le nostre guide di viaggio con consigli pratici e suggerimenti per risparmiare.</p>
+						<p class="my-4" data-aos="fade-up" data-aos-delay="300">
+							<a href="#" class="btn btn-primary">Scopri tutti</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				{% for post in categorized_post %}
+				<div class="col-lg-3">
+					<div class="service-2 left-0 mb-5">
+						<img src="{{ post.cover_image }}" alt="{{ post.title }}" class="blog-preview">
+						<div>
+							<h3>
+								<a href="{{ url_for('show_post', slug=post.slug) }}">{{ post.title }}</a>
+							</h3>
+							<p>{{ post.subtitle }}</p>
+							<p>
+								<a href="{{ url_for('show_post', slug=post.slug) }}" class="more">Leggi di più</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
